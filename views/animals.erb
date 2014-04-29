@@ -2,6 +2,6 @@
 <hr>
 <ul>
   <% animals.each do |animal| %>
-    <li><%= animal[:name] %></li>
+    <li><a href="/animals/<%= animal[:id] %>"><%= animal[:name] %></a></li>
   <% end %>
 </ul>

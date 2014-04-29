@@ -30,4 +30,10 @@ class Application < Sinatra::Application
     redirect '/animals'
   end
 
+  get '/animals/:id' do
+    animals = DB[:animals]
+    animal = animals.where(:id => params[:id])
+    erb :show, :locals => {:animal => animal.first}
+  end
+
 end

@@ -20,4 +20,14 @@ feature 'Homepage' do
     expect(page).to have_content('zebra')
   end
 
+  scenario 'User can see animal show page' do
+    visit '/'
+    click_on 'Animals'
+    click_on 'Add'
+    fill_in 'Animal Name', with: 'pangolin'
+    click_on 'add'
+    click_on 'pangolin'
+    expect(page).to have_content('pangolin')
+  end
+
 end
