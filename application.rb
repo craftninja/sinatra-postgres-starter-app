@@ -48,4 +48,10 @@ class Application < Sinatra::Application
     redirect '/animals'
   end
 
+  post '/animals/:id' do
+    animals = DB[:animals]
+    animals.where(:id => params[:id]).delete
+    redirect '/animals'
+  end
+
 end

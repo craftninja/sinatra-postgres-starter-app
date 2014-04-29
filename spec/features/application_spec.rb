@@ -43,4 +43,15 @@ feature 'Homepage' do
     expect(page).to have_content('badger')
   end
 
+  scenario 'User can delete animals' do
+    visit '/'
+    click_on 'Animals'
+    click_on 'Add'
+    fill_in 'Animal Name', with: 'shrew'
+    click_on 'add'
+    click_on 'shrew'
+    click_on 'delete'
+    expect(page).to have_no_content('shrew')
+  end
+
 end
