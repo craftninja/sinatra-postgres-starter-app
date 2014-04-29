@@ -36,4 +36,16 @@ class Application < Sinatra::Application
     erb :show, :locals => {:animal => animal.first}
   end
 
+  get '/animals/:id/edit' do
+    animals = DB[:animals]
+    animal = animals.where(:id => params[:id])
+    erb :edit, :locals => {:animal => animal.first}
+  end
+
+  put '/animals/:id/edit' do
+    animals = DB[:animals]
+    animals.where(:id => params[:id]).update(:name => params[:name])
+    redirect '/animals'
+  end
+
 end

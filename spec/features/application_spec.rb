@@ -30,4 +30,17 @@ feature 'Homepage' do
     expect(page).to have_content('pangolin')
   end
 
+  scenario 'User can edit animals' do
+    visit '/'
+    click_on 'Animals'
+    click_on 'Add'
+    fill_in 'Animal Name', with: 'baaadger'
+    click_on 'add'
+    click_on 'baaadger'
+    click_on 'Edit'
+    fill_in 'Animal Name', with: 'badger'
+    click_on 'update'
+    expect(page).to have_content('badger')
+  end
+
 end

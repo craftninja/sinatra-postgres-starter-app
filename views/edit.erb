@@ -1,0 +1,5 @@
+<form action="/animals/<%= animal[:id] %>/edit" method="post">
+  <input type="hidden" name="_method" value="put"/>
+  <input type="text" id="Animal Name" value="<%= animal[:name] %>" name="name"/>
+  <input type="submit" value="update"/>
+</form>
